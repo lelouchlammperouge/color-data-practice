@@ -34,12 +34,29 @@ function goBtnClicked() {
 
 // MENU FUNCTIONS
 function allColors() {
-  // Display Name and Family of All Colors
-  outputEl.innerHTML = "<h3>Display All Colors</h3>";
+  console.log("Display All");
+
+  if (colorData && colorData.length > 0) {
+    let all = '';
+
+    colorData.forEach(color => {
+      all += `${color.name}<br>`;
+    });
+
+    const container = document.getElementById('output'); // Get the container element
+    container.innerHTML = all; // Display the names in the container
+
+    const nameCountSpan = document.getElementById('nameCountSpan'); // Assuming a span for name count
+    nameCountSpan.textContent = `Total Names: ${colorData.length}`; // Display the total count of names
+  } else {
+    console.log("No data available to display."); // Log a message if data is not available
+  }
 }
 
+
 function brightColors() {
-  // Display Name and Brightness of All Colors with a Brightness of 200 and Higher
+  // Display Name and Brightness of All Colors with a Brightness of 200 and Higher 
+  if (colorData && colorData)
   outputEl.innerHTML = "<h3>Display Bright Colors</h3>";
 }
 
